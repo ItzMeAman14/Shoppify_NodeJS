@@ -1,0 +1,62 @@
+<br>
+<br>
+<h1 style="color: black; text-decoration:underline; text-align:center;">Our Products</h1>
+
+<div class="container overflow-hidden text-center">
+  <div class="row gy-5" id="main_container">
+  </div>
+</div>
+
+<script>
+  window.onload = async () => {
+    const main = document.getElementById("main_container");
+    const data = await fetch("https://fakestoreapi.com/products");
+    const text = await data.json();
+    
+    for(var i=0;i<text.length;i++){
+        
+        // Creating Element
+        let div_card = document.createElement("div");
+        let div_card_in = document.createElement("div");
+        let image = document.createElement("img");
+        let card_body = document.createElement("div");
+        let title = document.createElement("h3");
+        let price = document.createElement("h4");
+        let link = document.createElement("a");
+
+        // Adding ClassName
+        div_card.id = text[i].id;
+        image.className = "card-img-top";
+        div_card_in.className = "card";
+        card_body.className = "card-body";
+        title.className = "card-title";
+        link.className = "col";
+
+        //Adding Content
+        image.src = text[i].image;
+        title.innerText = text[i].title;
+        price.innerText = text[i].price;
+        link.href = `/shop/${text[i].id}`;
+
+        // Appending inside the Container
+        link.appendChild(div_card);
+        div_card.appendChild(div_card_in);
+        div_card_in.appendChild(image);
+        div_card_in.appendChild(card_body);
+        card_body.appendChild(title);
+        card_body.appendChild(price);
+        main.appendChild(link);
+
+        // Styling
+        div_card_in.style.height = "500px";
+        div_card_in.style.width = "400px";
+        image.style.maxHeight = "60%";
+        image.style.maxWidth = "100%";
+        image.style.objectFit = "contain";
+        div_card.style.height = "500px";
+        div_card.style.width = "400px";
+    
+    }
+    
+  }
+</script>

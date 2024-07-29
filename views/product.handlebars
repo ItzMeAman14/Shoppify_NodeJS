@@ -1,0 +1,53 @@
+<div style="background-color: aliceblue;">
+
+    <div class="clearfix" style="background-color: aliceblue;">
+
+
+        <div class="card col-md-6 float-md-end mb-3 ms-md-3"
+            style="width: 18rem; height:35rem; margin-right:50px; background-color:aliceblue;">
+            <img src="{{product.image}}" style="object-fit:contain;" alt=" ...">
+            <div class="card-body">
+                <h3 class="card-text">{{product.title}}</h3>
+                <button onclick="buy()" type="button" class="btn btn-outline-warning">Buy Now</button>
+
+                <button type="button" class="btn btn-primary position-relative">
+                    Rating {{product.rating.rate}} &star;
+                </button>
+            </div>
+        </div>
+
+        <div class="card" style="width: 55rem; margin-left:20px; margin-top:10px; background-color:rgb(195, 222, 245);">
+            <div class="card-body">
+               <h1 id="price">Price : ${{product.price}} <p id="discount" style="text-decoration: line-through;">$30</p>
+                </h1>
+                <p class="card-text" style="font-size: 22px;">
+                    {{product.description}}
+                </p>
+                
+                <button type="button" class="btn btn-outline-danger">Only {{product.rating.count}} pieces Left</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    async function buy(){
+        check = false;
+        const c = await fetch("http://localhost:3000/users");
+        const data = await c.json();
+        for(var i=0;i<data.length;i++){
+            if(data[i].isLogin === false){
+                check = false;
+            }
+            else{
+                check = true;
+                break;
+            }
+        }
+        if(check == false){
+            alert("Login to Buy");
+        }
+    }
+</script>
