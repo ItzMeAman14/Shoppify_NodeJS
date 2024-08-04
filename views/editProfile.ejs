@@ -1,0 +1,133 @@
+<%- include("./layouts/main")%>
+
+<head>
+<style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 38px;
+      color: #fff;
+      z-index: 2;
+      } 
+      p.top-info {
+      margin: 10px 0;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      .update-form {
+      padding: 20px;
+      width: 500px;
+      border-radius: 6px;
+      background: #f3efef;
+      }
+     .banner {
+      position: relative;
+      height: 210px;
+      background-image: url("./bg.jpg");  
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.6); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      .input-update{
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      .item input:hover{
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #1c87c9;
+      color: #1c87c9;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      
+      span.required {
+      margin-left: 0;
+      color: red;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      #sub_btn{
+      width: auto;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #1c87c9;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      }
+      #sub_btn:hover {
+      background: #1e6fa0;
+      }
+</style>
+
+  </head>
+  <body>
+    <div class="testbox">
+      <form class="update-form" action="/updateDetails" method="post" enctype="multipart/form-data">
+        <div class="banner">
+          <h1>Update Your Profile Here</h1>
+        </div>
+        <div class="item">
+          <p>Username<span class="required">*</span></p>
+            <input class="input-update" type="text" name="username" required/>
+          </div>
+        
+          <div class="item">
+            <p>Email</p>
+            <input class="input-update" type="text" name="email"/>
+          
+          <div class="item">
+            <p>Address</p>
+            <input class="input-update" type="text" name="Address"/>
+          </div>
+
+        <div class="item">
+            <p>LandMark</p>
+            <input class="input-update" type="text" name="Landmark"/>
+          </div>
+          
+        <div class="item">
+            <p>Upload Profile Picture</p>
+            <input class="input-update" type="file" name="file" accept="image/*">
+            <strong>Note: Choose nothing to set Default Avatar</strong>
+        </div>
+        <div class="btn-block">
+          <button id="sub_btn" type="submit">Update Details</button>
+        </div>
+      </form>
+    </div>

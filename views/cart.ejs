@@ -1,0 +1,202 @@
+<%- include("./layouts/main")%>
+
+    <head>
+        <style>
+            .cart-container {
+                max-width: 1200px;
+                margin: auto;
+                padding: 2rem;
+            }
+
+            .cart-header {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 2rem;
+            }
+
+            .cart-item {
+                display: flex;
+                border-bottom: 1px solid #ddd;
+                padding: 1rem 0;
+                align-items: center;
+            }
+
+            .cart-item img {
+                max-width: 100px;
+                border-radius: 8px;
+            }
+
+            .cart-item-details {
+                flex: 1;
+                margin-left: 1rem;
+            }
+
+            .cart-item-title {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            .cart-item-price {
+                color: #ff5722;
+                font-size: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .cart-item-actions {
+                display: flex;
+                align-items: center;
+            }
+
+            .cart-item-actions button {
+                margin-right: 1rem;
+            }
+
+            .cart-summary {
+                background-color: #fff;
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .cart-summary h4 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .cart-summary .total-price {
+                font-size: 1.25rem;
+                font-weight: bold;
+                color: #ff5722;
+            }
+
+            .checkout-btn {
+                background-color: #ff5722;
+                border: none;
+                color: #fff;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+
+            .checkout-btn:hover {
+                background-color: #e64a19;
+            }
+
+            .empty-cart-container {
+                text-align: center;
+                background-color: #fff;
+                padding: 2rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+                width: 100%;
+            }
+
+            .empty-cart-container img {
+                width: 150px;
+                margin-bottom: 1rem;
+            }
+
+            .empty-cart-container h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .empty-cart-container p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
+
+            @media (max-width: 576px) {
+                .empty-cart-container {
+                    padding: 1.5rem;
+                }
+
+                .empty-cart-container h1 {
+                    font-size: 1.5rem;
+                }
+
+                .empty-cart-container p {
+                    font-size: 1rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .cart-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .cart-item img {
+                    margin-bottom: 1rem;
+                }
+
+                .cart-item-actions {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .cart-item-actions button {
+                    margin-bottom: 0.5rem;
+                }
+            }
+        </style>
+    </head>
+
+    <div style="display: none;" class="container cart-container non-empty">
+        <div class="cart-header">
+            Your Cart
+        </div>
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/100" alt="Product Image">
+            <div class="cart-item-details">
+                <div class="cart-item-title">Product Title 1</div>
+                <div class="cart-item-price">$19.99</div>
+                <div class="cart-item-actions">
+                    <button class="btn btn-outline-secondary btn-sm">Remove</button>
+                    <button class="btn btn-outline-primary btn-sm">Save for Later</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/100" alt="Product Image">
+            <div class="cart-item-details">
+                <div class="cart-item-title">Product Title 2</div>
+                <div class="cart-item-price">$29.99</div>
+                <div class="cart-item-actions">
+                    <button class="btn btn-outline-secondary btn-sm">Remove</button>
+                    <button class="btn btn-outline-primary btn-sm">Save for Later</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-summary mt-4">
+            <h4>Order Summary</h4>
+            <div>Total Items: 2</div>
+            <div class="total-price">$49.98</div>
+            <button class="checkout-btn mt-3">Proceed to Checkout</button>
+        </div>
+    </div>
+
+
+
+
+<div class="center-wrap-empty" style="height:700px; display: flex; justify-content: center; align-items: center;">
+    <div class="empty-cart-container">
+        <img src="./bg.jpg" alt="Empty Cart Image">
+        <h1>Your Cart is Empty</h1>
+        <p>Looks like you haven't added anything to your cart yet. Start shopping now to find something you'll love!</p>
+        <a href="/shop" class="btn btn-primary">Shop Now</a>
+    </div>
+</div>

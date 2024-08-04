@@ -1,0 +1,96 @@
+<%- include("./layouts/main")%>
+
+<head>
+  <style>
+    /* Basic styling for the card container */
+    #main_container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+        width: 300px; /* Fixed width */
+        height: 400px; /* Fixed height */
+        text-align: center;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card-img-top {
+        width: 100%; /* Full width of the card */
+        height: 150px; /* Fixed height */
+        object-fit: contain; /* Ensure the image covers the area */
+    }
+
+    .card-body {
+        padding: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Space between elements */
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin: 10px 0; /* Margin for spacing */
+        color: #333;
+    }
+
+    .card-price {
+        font-size: 1.125rem;
+        color: #555;
+        margin: 5px 0 15px; /* Margin for spacing */
+    }
+
+    .btn {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .btn-outline-warning {
+        background-color: transparent;
+        border: 1px solid #ffc107;
+        color: #ffc107;
+    }
+
+    .btn-outline-warning:hover {
+        background-color: #ffc107;
+        color: #fff;
+    }
+</style>
+</head>
+
+<body>
+  
+  <h1 style="color: black; text-decoration:underline; text-align:center;">Our Products</h1>
+  
+    <main id="main_container">
+      <% products.forEach(product => { %>
+          <div class="card" id="<%= product.id %>">
+              <a href="/shop/<%= product.id %>" class="card-link">
+                  <img src="<%= product.image %>" alt="<%= product.title %>" class="card-img-top">
+              </a>
+              <div class="card-body">
+                  <h3 class="card-title"><%= product.title %></h3>
+                  <h4 class="card-price">&#x20b9;<%= product.price*23 %></h4>
+                  <button class="btn btn-outline-warning shop" data-id="<%= product.id %>">Add to Cart</button>
+              </div>
+          </div>
+      <% }); %>
+  </main>
+  </body>

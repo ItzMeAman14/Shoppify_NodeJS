@@ -32,6 +32,9 @@ const LoginSchema = new mongoose.Schema({
     },
     isLogin:{
         type:Boolean
+    },
+    img:{
+        type:String
     }
 });
 
